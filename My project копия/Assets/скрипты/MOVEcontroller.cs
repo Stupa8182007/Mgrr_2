@@ -25,7 +25,7 @@ public class MOVEcontroller : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask); //физика
+        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask); //ГґГЁГ§ГЁГЄГ 
         if (isGrounded && velocity.y < 0)
         {
             anim.SetBool("isJumping", false);
@@ -45,7 +45,7 @@ public class MOVEcontroller : MonoBehaviour
 
 
 
-        if (Input.GetKey(KeyCode.Space) && isGrounded) //прыжок
+        if (Input.GetKey(KeyCode.Space) && isGrounded) //ГЇГ°Г»Г¦Г®ГЄ
         {
             velocity.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
         }
@@ -54,7 +54,7 @@ public class MOVEcontroller : MonoBehaviour
         controller.Move(velocity * Time.deltaTime);
 
 
-        if (Input.GetKey(KeyCode.LeftShift)) //бег
+        if (Input.GetKey(KeyCode.LeftShift)) //ГЎГҐГЈ
         {
             speed = run;
             anim.SetBool("isEboshit", true);
@@ -72,6 +72,15 @@ public class MOVEcontroller : MonoBehaviour
         else
         {
             anim.SetBool("isRunning", true);
+        }
+        
+        if (Input.anyKey)
+        {
+            speed = 3;
+        }
+        else
+        {
+            speed = 0;
         }
     }
 }
